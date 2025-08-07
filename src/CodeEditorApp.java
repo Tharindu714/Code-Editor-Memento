@@ -49,10 +49,8 @@ class Caretaker {
 
     void undo() {
         if (!canUndo()) return;
-        // move current to redo
         Memento current = undoStack.pop();
         redoStack.push(current);
-        // restore previous
         Memento previous = undoStack.peek();
         originator.restoreFromMemento(previous);
     }
